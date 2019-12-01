@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 60px auto auto auto;
+    margin: 40px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-bottom: solid 1px;
+}
+
+.item.table-header {
+    font-weight: bold;
+}
+
+.item.icon {
+    max-width: 40px;
+    max-height: 40px;
+}

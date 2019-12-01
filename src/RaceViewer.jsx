@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import RaceIcon from './RaceIcon';
+
+import './RaceViewer.css';
 
 class RaceViewer extends React.Component {
     constructor(props) {
@@ -9,7 +12,7 @@ class RaceViewer extends React.Component {
             races: []
         };
 
-        this.interval = 15000;
+        this.interval = 5000;
         this.fetchData = this.fetchData.bind(this);
     }
 
@@ -26,20 +29,24 @@ class RaceViewer extends React.Component {
         const races = data.data.result;
 
         this.timer = setTimeout(this.fetchData, this.interval);
-// console.log(races)
+
         this.setState({races});
     }
 
     render() {
         return (
-            <div>
+            <div className="grid-container">
+                <span className="item table-header"></span>
+                <span className="item table-header">Event Name</span>
+                <span className="item table-header">Venue</span>
+                <span className="item table-header">Start Time</span>
                 {this.state.races.map(
-                    race => (<div key={race.EventID}>
-                        <span>{race.EventName}</span>
-                        <span>{race.Venue.Venue}</span>
-                        <span>{race.AdvertisedStartTime}</span>
-                        <span>{race.EventTypeDesc}</span>
-                    </div>)
+                    race => (<React.Fragment key={race.EventID}>
+                        <RaceIcon type={race.EventTypeDesc} className="item icon" />
+                        <span className="item">{race.EventName}</span>
+                        <span className="item">{race.Venue.Venue}</span>
+                        <span className="item">{race.AdvertisedStartTime}</span>
+                    </React.Fragment>)
                 )}
                 
             </div>
