@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Outstanding
+- Styling and branding
+- Unit tests
+- Filter by race type
+- Error handling
+
 ## Available Scripts
 
 In the project directory, you can run:
